@@ -1,0 +1,47 @@
+[
+    { 
+        "id": 0,
+        "name": "cafe.exe",
+        "isFavorite": true 
+    },
+    { 
+        "id": 1,
+        "name": "KafaKafe",
+        "isFavorite": false 
+    },
+    {
+        "id": 2,
+        "name": "BugG",
+        "isFavorite": false
+    },
+    { 
+        "id": 3,
+        "name": "Rock`n Code",
+        "isFavorite": true
+    },
+    { 
+        "id": 4,
+        "name": "do(drink)",
+        "isFavorite": false
+    },
+    {
+        "id": 5,
+        "name": "CodeHouse",
+        "isFavorite": true
+    },
+    {
+        "id": 6,
+        "name": "Energy = Milk x (Coffee)^2",
+        "isFavorite": false
+    },
+    {
+        "id": 7,
+        "name": "CoffeeLovers",
+        "isFavorite": true
+    },
+    {
+        "id": 8,
+        "name": "HelloWorld",
+        "isFavorite": true
+    }
+]
