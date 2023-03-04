@@ -26,6 +26,7 @@ const App = () => {
       setCafeList(favList) : setCafeList(data)
   }
 
+  //  To find favorite data
   function editFavList() {
     const editedList = cafeList.filter(item => item.isFavorite)
     setFavList(editedList)
