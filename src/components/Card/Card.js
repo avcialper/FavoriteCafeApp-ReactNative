@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import Icon from "react-native-vector-icons/AntDesign";
 import styles from "./Card.style"
 
-const Card = ({ item, addRemove, favList, position }) => {
+const Card = ({ item, cafeList, setCafeList, editFavList, position }) => {
 
     // Icon color state
     const [isFavorite, setIsFavorite] = useState(item.isFavorite)
@@ -12,26 +12,19 @@ const Card = ({ item, addRemove, favList, position }) => {
 
     // Add or remove in favList and change isFavorite value
     function setChange() {
-        item = { ...item, isFavorite: !isFavorite }
+        const list = cafeList.map(cafe => {
+            if (cafe.id === item.id)
+                cafe.isFavorite = !cafe.isFavorite
+            return cafe
+        })
         setIsFavorite(item.isFavorite)
-        addRemove(item.isFavorite, item.id)
+        setCafeList(list)
+        editFavList()
     }
 
-    // To keep information saved after switch position changes and change favorite state in on position 
+    // If switch position on and item take of in list this card take of
     useEffect(() => {
-        // If current item in favList, icon is red
-        for (const cafe of favList) {
-            if (cafe.id === item.id) {
-                setIsFavorite(true)
-                break
-            }
-            setIsFavorite(false)
-        };
-        // If switch position on and item take of in list this card take of
         !isFavorite && position ? setVisible(false) : setVisible(true)
-        // If favList is empty, all card icons color set white.
-        if (favList.length == 0)
-            setIsFavorite(false)
     }, [setChange])
 
     return (

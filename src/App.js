@@ -11,11 +11,12 @@ const App = () => {
   const [position, setPosition] = useState(false)
 
   // Render card for FlatList
-  const renderCard = ({ item }) => <Card 
-    item={item} 
-    addRemove={addRemove} 
-    favList={favList} 
-    position={position} 
+  const renderCard = ({ item }) => <Card
+    item={item}
+    cafeList={cafeList}
+    setCafeList={setCafeList}
+    editFavList={editFavList}
+    position={position}
   />
 
   // All or only favorites
@@ -25,14 +26,9 @@ const App = () => {
       setCafeList(favList) : setCafeList(data)
   }
 
-  // Add or remove in favList
-  function addRemove(isFav, isId) {
-    isFav ?
-      setFavList(favList.concat(data[isId])
-        .sort((item1, item2) => {
-          if (item1.id < item2.id) return -1
-        }))
-      : setFavList(favList.filter(cafes => cafes.id !== isId))
+  function editFavList() {
+    const editedList = cafeList.filter(item => item.isFavorite)
+    setFavList(editedList)
   }
 
   return (
